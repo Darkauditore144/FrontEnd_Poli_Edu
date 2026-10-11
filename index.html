@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXO 360° — Crónicas, turismo, comercio y el futuro del conocimiento</title>
+  <meta name="description" content="Portada de NEXO 360°: noticias de educación, tecnología, turismo y comercio.">
+
+  <!-- Tipografías (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Librerías por CDN, como se vio en clase: Bootstrap, jQuery UI (tema base) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+  <!-- Estilos propios (después de las librerías para poder sobrescribirlas) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="inicio">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Franja superior -->
+  <div class="topbar"><div class="container">
+    <span id="fecha-edicion">Bogotá D.C.</span>
+    <span><strong>Edición diaria</strong><span class="sep"></span>Suscripción: activa</span>
+  </div></div>
+
+  <!-- Logotipo -->
+  <header class="masthead">
+    <a class="brand" href="index.html" aria-label="NEXO 360°, ir al inicio">NEXO 360°</a>
+    <p class="tagline">CRÓNICAS, TURISMO, COMERCIO Y EL FUTURO DEL CONOCIMIENTO</p>
+  </header>
+
+  <!-- Navegación principal -->
+  <nav class="navbar navbar-expand-lg main-nav-wrap" aria-label="Navegación principal">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu-principal">
+        <ul class="navbar-nav main-nav list-unstyled">
+          <li><a data-nav="inicio" href="index.html">INICIO</a></li>
+          <li><a data-nav="educacion" href="listado.html?cat=educacion"><span class="dot-cat dot-edu"></span>Educación</a></li>
+          <li><a data-nav="tecnologia" href="listado.html?cat=tecnologia"><span class="dot-cat dot-tec"></span>Tecnología</a></li>
+          <li><a data-nav="turismo" href="listado.html?cat=turismo"><span class="dot-cat dot-tur"></span>Turismo</a></li>
+          <li><a data-nav="comercio" href="listado.html?cat=comercio"><span class="dot-cat dot-com"></span>Comercio</a></li>
+          <li><a data-nav="todas" href="listado.html">Todas</a></li>
+        </ul>
+        <div class="nav-tools">
+          <form class="search-box" id="form-buscar" role="search">
+            <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <label class="visually-hidden" for="buscador">Buscar noticia</label>
+            <input id="buscador" type="search" placeholder="Buscar noticia…" autocomplete="off">
+          </form>
+          <button class="tool-btn" id="btn-alertas" type="button" aria-label="Ver alertas">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 1112 0v6l2 2H4l2-2zM10 21h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </button>
+          <a class="tool-btn" href="favoritos.html" aria-label="Mis favoritos" title="Mis favoritos">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.1C1.100 8.600 3 5 6.400 5c2 0 3.600 1.100 4.600 2.700h2C14 6.100 15.600 5 17.600 5 21 5 22.900 8.600 21.500 11.900 19.500 16.400 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="badge-fav js-contador-fav d-none">0</span>
+          </a>
+          <a class="tool-btn" href="contacto.html" aria-label="Contacto" title="Contacto">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <div class="container layout">
+      <!-- Sistema de rejilla de Bootstrap: 8 columnas de contenido + 4 de barra lateral -->
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <!-- #hero, #ultimas y #tendencias se rellenan con JavaScript (js/pages.js) a partir de data/noticias.json -->
+          <section id="hero" aria-label="Noticia destacada"></section>
+          <div class="section-rule"></div>
+          <h2 class="section-heading">Últimas noticias</h2>
+          <section id="ultimas" class="row g-3" aria-label="Últimas noticias"></section>
+          <p class="mt-3"><a class="btn-nexo btn-outline" href="listado.html">Ver todas las noticias →</a></p>
+        </div>
+        <aside class="col-lg-4 side-col" aria-label="Barra lateral">
+          <h2 class="side-title">Tendencias</h2>
+          <ol id="tendencias" class="trend-list"></ol>
+
+          <!-- Boletín: formulario validado por js/forms.js -->
+          <section class="box-news" aria-labelledby="t-boletin">
+            <h3 id="t-boletin">Boletín diario NEXO 360°</h3>
+            <p>Reciba el mejor periodismo independiente directo en su correo cada mañana. Curaduría exclusiva sin costo.</p>
+            <form id="form-boletin" novalidate>
+              <label class="visually-hidden" for="correo-boletin">Correo electrónico</label>
+              <input id="correo-boletin" name="correo" type="email" placeholder="correo@ejemplo.com" aria-describedby="correo-boletin-error" autocomplete="email">
+              <div class="invalid-feedback" id="correo-boletin-error" aria-live="polite"></div>
+              <button class="btn-nexo" type="submit">Suscribirme ahora</button>
+            </form>
+          </section>
+
+          <section class="box-sponsor" aria-label="Contenido patrocinado">
+            <small>PATROCINADO</small>
+            <h3>Viaja de forma consciente</h3>
+            <p>Conoce las ecovillas certificadas en el sur del país. Descuentos exclusivos para suscriptores de NEXO 360°.</p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><span class="brand-mini">NEXO 360°</span><br>Proyecto académico — Desarrollo de Front-end, Politécnico Grancolombiano.</div>
+      <nav aria-label="Pie de página">
+        <a href="index.html">Inicio</a><a href="listado.html">Noticias</a><a href="favoritos.html">Favoritos</a><a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts: primero las librerías (orden importante), luego los propios -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/noticias-respaldo.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
